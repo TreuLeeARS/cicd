@@ -26,4 +26,9 @@ jobs:
       - name: Deploy to Vercel
         run: |
           npm i -g vercel
-          vercel --token=$VERCEL_TOKEN --prod
+          vercel --token=$VERCEL_TOKEN --prod --yes
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }} 
+      - name: Notify deployment
+        run: echo "Deployment to Vercel completed successfully!"
+
